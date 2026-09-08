@@ -1,5 +1,7 @@
 // Configuração do Babel / JS moderno
 "use strict"
+// Configuração do Babel / JS moderno
+"use strict"
 
 // Importação dos estilos CSS
 import "./styles/global.css"
@@ -7,10 +9,14 @@ import "./styles/header.css"
 import "./styles/schedule.css"
 import "./styles/modal.css"
 
-//importação do dayjs
+// Importação da biblioteca de data
 import "./libs/dayjs.js"
 
-//importação do carregamento da página
+// Importação dos Módulos da aplicação
 import "./modules/page-load.js"
+import "./modules/schedules/cancel.js"
+import "./modules/form/modal.js" // O arquivo que abriu o modal que fizemos antes
 
-console.log("PetShop conectado com o Webpack do padrão HairDay!")
+// ---> ADICIONE ESTAS DUAS LINHAS <---
+import "./modules/form/submit.js"
+import "./modules/form/date-change.js"
