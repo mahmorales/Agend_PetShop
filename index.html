@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento | PetShop</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Estilos globais e componentes -->
+  <link rel="stylesheet" href="./src/styles/global.css">
+  <link rel="stylesheet" href="./src/styles/header.css">
+  <link rel="stylesheet" href="./src/styles/schedule.css">
+  <link rel="stylesheet" href="./src/styles/modal.css">
+</head>
+<body>
+  
+  <header>
+    <div class="logo">
+      <img src="./src/assets/pet-paw.svg" alt="Logo PetShop">
+      <img src="./src/assets/vetor.svg" alt="Tipografia PetShop">
+    </div>
+    <div class="date-selector">
+      <img src="./src/assets/calendar.svg" alt="Calendário">
+      <input type="date" id="schedule-date" />
+    </div>
+  </header>
+
+  <main class="container">
+    <header class="main-header">
+      <h1>Agenda do dia</h1>
+      <button id="btn-new-schedule">Novo agendamento</button>
+    </header>
+
+    <section id="morning" class="schedule-period">
+      <h2>
+        <img src="./src/assets/sun-fog.svg" alt="Manhã">
+        Manhã <span>09:00 - 12:00</span>
+      </h2>
+      <ul class="schedule-list">
+        <!-- Card Estático Temporário (Apenas para basear o CSS) -->
+        <li class="schedule-item">
+          <span class="time">09:00</span>
+          <div class="client-info">
+            <strong><img src="./src/assets/dog.svg" alt="Pet"> Thor</strong>
+            <span><img src="./src/assets/user.svg" alt="Tutor"> / Ana Silva</span>
+          </div>
+          <span class="service">Banho e Tosa</span>
+          <button class="btn-remove">Remover</button>
+        </li>
+      </ul>
+    </section>
+
+    <section id="afternoon" class="schedule-period">
+      <h2>
+        <img src="./src/assets/cloud-sun.svg" alt="Tarde">
+        Tarde <span>13:00 - 18:00</span>
+      </h2>
+      <ul class="schedule-list">
+        <!-- JS injetará cards aqui -->
+      </ul>
+    </section>
+
+    <section id="evening" class="schedule-period">
+      <h2>
+        <img src="./src/assets/moon-stars.svg" alt="Noite">
+        Noite <span>19:00 - 21:00</span>
+      </h2>
+      <ul class="schedule-list">
+        <!-- JS injetará cards aqui -->
+      </ul>
+    </section>
+  </main>
+
+  <div id="modal-new-schedule" class="modal-overlay hidden">
+    <div class="modal-content">
+      <header>
+        <h2>Agende um atendimento</h2>
+        <button class="btn-close-modal">
+          <img src="./src/assets/closex.svg" alt="Fechar">
+        </button>
+      </header>
+      
+      <form id="new-schedule-form">
+        <!-- Os inputs serão adicionados aqui em breve -->
+        <button type="submit">Agendar</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
