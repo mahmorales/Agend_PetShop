@@ -19,36 +19,39 @@
   
   <header>
     <div class="logo">
-      <img src="./src/assets/pet-paw.svg" alt="Logo PetShop">
-      <img src="./src/assets/vetor.svg" alt="Tipografia PetShop">
-    </div>
-    <div class="date-selector">
-      <img src="./src/assets/calendar.svg" alt="Calendário">
-      <input type="date" id="schedule-date" />
+      <img src="./src/assets/dog.svg" alt="Ícone Pet">
+      <img src="./src/assets/vetor.svg" alt="Mundo Pet">
     </div>
   </header>
 
   <main class="container">
+    <!-- Main Header com a Data -->
     <header class="main-header">
-      <h1>Agenda do dia</h1>
-      <button id="btn-new-schedule">Novo agendamento</button>
+      <div class="title-wrapper">
+        <h1>Sua agenda</h1>
+        <p>Aqui você pode ver todos os clientes e serviços agendados para hoje.</p>
+      </div>
+      <div class="date-selector">
+        <img src="./src/assets/calendar.svg" alt="Calendário">
+        <input type="date" id="schedule-date" />
+      </div>
     </header>
 
     <section id="morning" class="schedule-period">
       <h2>
         <img src="./src/assets/sun-fog.svg" alt="Manhã">
-        Manhã <span>09:00 - 12:00</span>
+        Manhã <span>09h-12h</span>
       </h2>
       <ul class="schedule-list">
-        <!-- Card Estático Temporário (Apenas para basear o CSS) -->
+        <!-- Card Estático Fiel ao Figma -->
         <li class="schedule-item">
           <span class="time">09:00</span>
           <div class="client-info">
-            <strong><img src="./src/assets/dog.svg" alt="Pet"> Thor</strong>
-            <span><img src="./src/assets/user.svg" alt="Tutor"> / Ana Silva</span>
+            <strong>Thor</strong>
+            <span>/ Fernanda Costa</span>
           </div>
-          <span class="service">Banho e Tosa</span>
-          <button class="btn-remove">Remover</button>
+          <span class="service">Vacinação</span>
+          <button class="btn-remove">Remover agendamento</button>
         </li>
       </ul>
     </section>
@@ -56,7 +59,7 @@
     <section id="afternoon" class="schedule-period">
       <h2>
         <img src="./src/assets/cloud-sun.svg" alt="Tarde">
-        Tarde <span>13:00 - 18:00</span>
+        Tarde <span>13h-18h</span>
       </h2>
       <ul class="schedule-list">
         <!-- JS injetará cards aqui -->
@@ -66,7 +69,7 @@
     <section id="evening" class="schedule-period">
       <h2>
         <img src="./src/assets/moon-stars.svg" alt="Noite">
-        Noite <span>19:00 - 21:00</span>
+        Noite <span>19h-21h</span>
       </h2>
       <ul class="schedule-list">
         <!-- JS injetará cards aqui -->
@@ -74,18 +77,70 @@
     </section>
   </main>
 
+  <!-- Botão Flutuante (Fixo no canto direito) -->
+  <button id="btn-new-schedule">NOVO AGENDAMENTO</button>
+
+  <!-- MODAL DE NOVO AGENDAMENTO -->
   <div id="modal-new-schedule" class="modal-overlay hidden">
     <div class="modal-content">
       <header>
-        <h2>Agende um atendimento</h2>
+        <div>
+          <h2>Agende um atendimento</h2>
+          <p class="subtitle">Preencha os dados do cliente para realizar o agendamento:</p>
+        </div>
         <button class="btn-close-modal">
           <img src="./src/assets/closex.svg" alt="Fechar">
         </button>
       </header>
       
       <form id="new-schedule-form">
-        <!-- Os inputs serão adicionados aqui em breve -->
-        <button type="submit">Agendar</button>
+        <div class="input-group">
+          <label for="tutor">Nome do tutor</label>
+          <div class="input-wrapper">
+            <img src="./src/assets/user.svg" alt="Ícone Tutor">
+            <input type="text" id="tutor" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="pet">Nome do pet</label>
+          <div class="input-wrapper">
+            <img src="./src/assets/pet-paw.svg" alt="Ícone Pet">
+            <input type="text" id="pet" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="phone">Telefone</label>
+          <div class="input-wrapper">
+            <img src="./src/assets/phone.svg" alt="Ícone Telefone">
+            <input type="tel" id="phone" placeholder="(00) 0 0000-0000" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="service">Descrição do serviço</label>
+          <textarea id="service" placeholder="Banho e tosa" rows="3" required></textarea>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="date">Data</label>
+            <div class="input-wrapper">
+              <img src="./src/assets/calendar.svg" alt="Ícone Data">
+              <input type="date" id="date" required>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="time">Hora</label>
+            <div class="input-wrapper">
+              <img src="./src/assets/clock.svg" alt="Ícone Hora">
+              <input type="time" id="time" required>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">AGENDAR</button>
       </form>
     </div>
   </div>
