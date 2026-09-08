@@ -6,8 +6,16 @@ Uma aplicação web para gerenciamento de agendamentos de um PetShop. Desenvolvi
 
 ## 💻 Telas da Aplicação
 
-<!-- Dica: Tire prints da sua tela e coloque os arquivos na pasta .github ou assets, depois atualize os links abaixo -->
-![Preview da Interface](./src/assets/preview.png)
+Interface
+
+<img width="1917" height="881" alt="image" src="https://github.com/user-attachments/assets/1bbef7f6-2e03-4f3d-b8fa-a20be736355a" />
+
+Formulário de cadastro
+
+<img width="1917" height="901" alt="image" src="https://github.com/user-attachments/assets/929797ea-3f00-481f-8e5e-5291a037139d" />
+
+
+
 
 ## ✨ Funcionalidades
 
