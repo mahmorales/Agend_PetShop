@@ -1,3 +1,13 @@
 {
-  "schedules": []
+  "schedules": [
+    {
+      "id": "iQ9xFldH0RI",
+      "name": "Ana Maria",
+      "pet": "Belinha",
+      "phone": "17997677871",
+      "service": "Tosa",
+      "when": "2026-09-09T17:00:00.000Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
