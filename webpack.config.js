@@ -1,43 +1,59 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path")
+const HTMLWebpackPlugin = require("html-webpack-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const { type } = require("os")
 
 module.exports = {
   target: "web",
   mode: "development",
-  
-  // Ponto de entrada: o arquivo JS principal que vamos criar em breve
+
   entry: path.resolve(__dirname, "src", "main.js"),
-  
-  // Ponto de saída: onde o Webpack vai jogar o código final (pasta dist)
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
   },
-  
-  // Configuração do nosso servidor local
+
   devServer: {
     static: {
       directory: path.join(__dirname, "dist"),
     },
     port: 3000,
-    open: true, // Abre o navegador automaticamente
-    liveReload: true, // Atualiza a página quando salvarmos algo
+    open: true,
+    liveReload: true,
   },
-  
-  // Plugins (Neste caso, ensinando a ler o nosso index.html)
-  plugins: [
-    new HtmlWebpackPlugin({
+
+  plugins: [  
+    new HTMLWebpackPlugin({
       template: path.resolve(__dirname, "index.html"),
+      favicon: path.resolve("src", "assets", "dog.svg"), // Usando nossa patinha como favicon
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src", "assets"),
+          to: path.resolve(__dirname, "dist", "src", "assets"),
+        },
+      ],
     }),
   ],
-  
-  // Regras para os tradutores (Loaders)
+
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        type: "javascript/auto",
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
       },
     ],
   },
-};
+}
