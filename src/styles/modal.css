@@ -21,6 +21,9 @@
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  max-height: 90vh; /* Garante que o modal não ultrapasse 90% da altura da tela */
+  overflow-y: auto; /* Cria rolagem interna caso o conteúdo seja muito grande */
 }
 
 .modal-content header {
@@ -167,4 +170,63 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .btn-submit:hover {
   opacity: 0.9;
+}
+
+/* Classe para ocultar o modal */
+.hidden {
+  display: none !important;
+}
+
+/* --- ESTILIZAÇÃO DA LISTA DE HORÁRIOS --- */
+#hours {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+/* Scrollbar customizada para a lista de horários */
+#hours::-webkit-scrollbar {
+  width: 6px;
+}
+#hours::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 4px;
+}
+
+/* Cada item de horário */
+.hour {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+  color: var(--color-text-title);
+  transition: all 0.2s ease;
+}
+
+.hour:hover:not(.hour-unavailable) {
+  border-color: var(--color-primary);
+}
+
+/* Horário selecionado */
+.hour.selected {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+
+/* Horário indisponível (já passou ou já foi agendado) */
+.hour.hour-unavailable {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background-color: transparent;
+  border-color: transparent;
 }
