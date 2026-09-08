@@ -1,0 +1,50 @@
+/* --- RESET BÁSICO --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- VARIÁVEIS DO PROJETO --- */
+:root {
+  /* Paleta Dark Theme baseada no Figma */
+  --color-background: #14151D;
+  --color-surface: #1E1F28; /* Fundo dos cards de Manhã/Tarde/Noite */
+  --color-primary: #9871F5; /* Roxo */
+  
+  /* Textos */
+  --color-text-title: #FFFFFF;
+  --color-text-body: #9CA3AF;
+  
+  /* Linhas e bordas */
+  --color-border: #29292E;
+
+  --font-family-base: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-body);
+  font-family: var(--font-family-base);
+}
+
+
+/* Estrutura Centralizada */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Classe global para esconder elementos */
+.hidden {
+  display: none !important;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
